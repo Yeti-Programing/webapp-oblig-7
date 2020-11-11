@@ -8,6 +8,8 @@ import PollMain from './components/layout/Poll_main';
 import Create_poll from './components/pages/Create_poll';
 import Signup from './components/pages/Signup';
 
+console.log("HELLO")
+
 class App extends Component {
   render() {
     return (
