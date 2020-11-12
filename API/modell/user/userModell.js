@@ -13,3 +13,16 @@ export const get = (mail) => {
     if(user.error) return user;
     return { status: 200, data: user };
 };
+
+export const create = (user) => {
+    const {...data} = user;
+    if(!data){
+        return {status: 200, error: "No user created"};
+    }
+    if(users.has(data.mail)){
+        return {status: 200, error: "Mail allready exists", data: Object.fromEntries(users)};
+    }
+    const userid = helpers.createId();
+    users.set(data.mail, {userid});
+    return { status: 200, data: Object.fromEntries(users)};
+}
