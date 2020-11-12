@@ -1,23 +1,19 @@
-import { list, get, create } from '../../modell/user/userModell.js';
+import { userService } from '../../service/user/index.js';
 
-export const getUsers = (req, res, next) => {
-    const {status, data} = list();
-    res.status(status).json({ status, data });
+export const get = async (req,res,next) => {
+    const user = await userService.getUserByMail(req.params.mail);
+    if(!user) { 
+        return res.status(404).json({error: "Not found"});
+    }
+    res.status(200).json(user);
 };
 
-export const getUserByMail = (req, res, next) => {
-    const { mail } = req.params;
-    const { error, status, data } = get(mail);
-    console.log(error,status,data);
-    res.status(status).json({error, status, data, params: mail, });
+export const users = async (req,res,next) => {
+    const result = await userService.listUsers();
+    res.status(200).json({...result});
 };
 
-export const createUser = (req,res,next) =>  {
-    const {mail,...users} = req.body;
-    const { error, status, data } = create({mail,...users});
-    res.status(status).json({
-        status,
-        error,
-        data,
-    });
+export const create = async (req,res,next) => {
+    const user = await userService.createUser(req.body);
+    res.status(201).json(user);
 };

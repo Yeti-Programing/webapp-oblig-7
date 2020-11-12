@@ -1,11 +1,10 @@
 import express from 'express';
-import { getUsers, getUserByMail, createUser } from '../../controller/user/userController.js';
-import { validateFields } from '../../middleware/userMiddleware.js'
+import { userController } from '../../controller/user/index.js';
 
 const router = express.Router();
 
-router.get('/', getUsers)
-router.get('/:mail', getUserByMail)
-router.post('/', validateFields, createUser)
+router.get('/', userController.users)
+router.get('/:mail', userController.get)
+router.post('/', userController.create)
 
 export default router;
