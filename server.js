@@ -7,9 +7,8 @@ import 'dotenv/config.js';
 const app = express();
 
 app.use(express.json());
-app.use(`${process.env.BASEURL}/user`, user);
-app.use(express.json());
 app.use(`${process.env.BASEURL}/poll`, poll);
+app.use(`${process.env.BASEURL}/signup`, user);
 
 app.listen(
     PORT, 

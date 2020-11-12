@@ -1,9 +1,11 @@
 import express from 'express';
+import { getUsers, getUserByMail, createUser } from '../../controller/user/userController.js';
+import { validateFields } from '../../middleware/userMiddleware.js'
 
 const router = express.Router();
 
-router.get('/', (req, res) => {res.json({UserID: "12341-asd231-123", Mail: "navn@epost.no"})})
-router.get('/:id', (req, res) => {res.json({UserID: "12341-asd231-123", Mail: "navn@epost.no"})})
-router.post('/', (req, res) => {res.json({UserID: "12341-asd231-123", Mail: "navn@epost.no"})})
+router.get('/', getUsers)
+router.get('/:mail', getUserByMail)
+router.post('/', validateFields, createUser)
 
 export default router;
