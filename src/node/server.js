@@ -18,6 +18,6 @@ app.post('/signup', [body('mail').isEmail()], (req, res) =>{
         .json({ success: true, data: req.body.mail });
 });
 
-app.listen(3000, () => {
+app.listen(5000, () => {
  console.log('server is running...')
 });
