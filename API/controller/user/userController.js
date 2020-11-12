@@ -15,9 +15,15 @@ export const users = async (req,res,next) => {
 
 export const create = async (req,res,next) => {
     try {
-        const user = await userService.createUser(req.body);
-        res.status(201).json(user);
+        const mailCheck = await userService.getUserByMail(req.body.mail);
+        if(mailCheck.length >= 1){
+            res.status(409).json({ error: "Mail exists in system" });
+        }
+        else{
+            const user = await userService.createUser(req.body);
+            res.status(201).json(user);
+        }
     } catch (error) {
-        res.status(400).json({error: "Create error"});
+        res.status(400).json({ error: "Create error" });
     }
 };
