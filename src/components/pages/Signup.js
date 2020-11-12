@@ -1,9 +1,10 @@
-import React from 'react'
+import React from 'react';
+import {v4 as uuid} from 'uuid';
 
 function buttonClicked(){
     var mail = document.getElementById("mail").value;
     console.log("Create user button was clicked")
-
+    alert(uuid());
 }
 
 export default function Signup() {
