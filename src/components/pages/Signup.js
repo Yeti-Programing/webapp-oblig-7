@@ -1,10 +1,9 @@
 import React from 'react'
-import { createUserButtonClicked } from '../../API/controller/user_controller.js';
 
 function buttonClicked(){
     var mail = document.getElementById("mail").value;
     console.log("Create user button was clicked")
-    this.createUserButtonClicked = new createUserButtonClicked(mail);
+
 }
 
 export default function Signup() {

@@ -1,10 +1,8 @@
 import React from 'react'
-import { createPollButtonClicked } from '../../API/controller/poll_controller.js';
 
 function buttonClicked(){
     console.log("Create user button was clicked")
-    this.createPollButtonClicked = new createPollButtonClicked();
-}
+}    
 
 function Create_poll() {
     return (

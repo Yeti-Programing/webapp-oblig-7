@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
-import { getPollButtonClicked } from '../../API/controller/poll_controller.js';
 
 function buttonClicked(){
-    this.getPollButtonClicked = new getPollButtonClicked();
+    
 }
 
 export class Poll_main extends Component {
