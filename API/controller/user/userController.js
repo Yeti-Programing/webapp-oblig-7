@@ -14,6 +14,10 @@ export const users = async (req,res,next) => {
 };
 
 export const create = async (req,res,next) => {
-    const user = await userService.createUser(req.body);
-    res.status(201).json(user);
+    try {
+        const user = await userService.createUser(req.body);
+        res.status(201).json(user);
+    } catch (error) {
+        res.status(400).json({error: "Create error"});
+    }
 };
