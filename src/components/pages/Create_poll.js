@@ -1,8 +1,23 @@
 import React from 'react'
+import { v4 as uuid } from 'uuid';
+import axios from 'axios';
 import { Form, Input, Button } from '../../styled/formStyle';
 
 function buttonClicked(){
-    console.log("Create user button was clicked")
+    let mail = document.getElementById("mail").value.toLowerCase();
+    let question = document.getElementById("pollQ").value;
+
+    axios.post('http://localhost:5000/api/v1/poll', {
+        pollid: uuid(),
+        creatorid: uuid(),
+        question:question,
+    })
+    .then(function(){
+        alert("Din poll har blitt registrert!")
+    })
+    .catch(function(error){
+        alert("Det har oppstått en feil, prøv igjen!")
+    })
 }    
 
 function Create_poll() {
@@ -11,11 +26,11 @@ function Create_poll() {
             <Form onSubmit={buttonClicked}>
                 <label>Din e-post:</label>
                 <br/>
-                <Input type="email" placeholder="name@mail.com"></Input>
+                <Input id="mail" type="email" placeholder="name@mail.com"></Input>
                 <br/>
                 <label>Skriv inn ditt spørsmål:</label>
                 <br/>
-                <Input type="text" placeholder="Spørsmål"></Input>
+                <Input id="pollQ" type="text" placeholder="Spørsmål"></Input>
                 <br/>
                 <Button type="submit">GO</Button>
             </Form>
