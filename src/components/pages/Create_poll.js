@@ -14,7 +14,8 @@ function buttonClicked(){
     { 
         let json = JSON.stringify(response);
         let array = json.split("\"");
-        userid = array[15];
+        userid = array[13];
+        
         
         axios.post('http://localhost:5000/api/v1/poll', {
             pollid: uuid(),

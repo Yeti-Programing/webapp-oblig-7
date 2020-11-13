@@ -9,7 +9,7 @@ export const get = catchAsyncErrors(async (req,res,next) => {
             new ErrorHander(`Finner ikke bruker med mail: ${req.params.mail}`, 404)
         );
     }
-    res.status(200).json({user});
+    res.status(200).json(user);
 });
 
 export const users = catchAsyncErrors(async (req,res,next) => {
