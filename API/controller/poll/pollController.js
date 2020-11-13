@@ -1,9 +1,12 @@
 import { pollService } from '../../service/poll/index.js';
+import ErrorHander from '../../utils/errorHandler.js';
 
 export const getPolls = async (req, res, next) => {
     const poll = await pollService.getPollById(req.params.pollid);
     if(!poll){
-        return res.status(404).json({error: "Not found"});
+        return next(
+            new ErrorHander(`Finner ikke poll med ID: ${req.params.pollid}`, 404)
+        );
     }
     res.status(200).json(poll);
 };
@@ -19,6 +22,6 @@ export const createPoll = async (req, res, next) => {
         res.status(201).json({message: "success"})
     }
     catch(error) {
-        res.status(400).json({ error: "Create error"});
+        new ErrorHander(`Mail eksisterer allerede i systemet: ${req.body}`, 400)
     }
 }
