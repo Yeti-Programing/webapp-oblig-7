@@ -10,11 +10,13 @@ export const getPolls = async (req, res, next) => {
 
 export const polls = async (req, res, next) => {
     const findPoll = await pollService.listPolls();
+    res.status(200).json({...findPoll});
 }
 
 export const createPoll = async (req, res, next) => {
     try {
-        //const create = await pollService.createPoll(req.body.)
+        await pollService.createPoll(req.body)
+        res.status(201).json({message: "success"})
     }
     catch(error) {
         res.status(400).json({ error: "Create error"});
