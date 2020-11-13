@@ -1,4 +1,5 @@
 import React from 'react'
+import { Form, Input, Button } from '../../styled/formStyle';
 
 function buttonClicked(){
     console.log("Create user button was clicked")
@@ -7,17 +8,17 @@ function buttonClicked(){
 function Create_poll() {
     return (
         <React.Fragment>
-            <form onSubmit={buttonClicked}>
+            <Form onSubmit={buttonClicked}>
                 <label>Din e-post:</label>
                 <br/>
-                <input type="email" placeholder="name@mail.com"></input>
+                <Input type="email" placeholder="name@mail.com"></Input>
                 <br/>
                 <label>Skriv inn ditt spørsmål:</label>
                 <br/>
-                <input type="text" placeholder="Spørsmål"></input>
+                <Input type="text" placeholder="Spørsmål"></Input>
                 <br/>
-                <button type="submit">GO</button>
-            </form>
+                <Button type="submit">GO</Button>
+            </Form>
         </React.Fragment>
     )
 }

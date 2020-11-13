@@ -1,15 +1,16 @@
 import React from 'react';
 import {v4 as uuid} from 'uuid';
-import Axios from 'axios';
+import axios from 'axios';
+import { Form, Input, Button } from '../../styled/formStyle';
 
 function buttonClicked(){
     var mail = document.getElementById("mail").value.toLowerCase();
-    Axios.post('http://localhost:5000/api/v1/signup', {
+    axios.post('http://localhost:5000/api/v1/signup', {
         mail: mail,
         userid: uuid()
       })
       .then(function () {
-        alert("Du er naa registrert");
+        alert(`Du er naa registrert`);
       })
       .catch(function (error) {
         if(error.toString() === "Error: Request failed with status code 409"){
@@ -27,13 +28,13 @@ function buttonClicked(){
 export default function Signup() {
     return (
         <React.Fragment>
-            <form onSubmit={buttonClicked}>
+            <Form onSubmit={buttonClicked}>
                 <label>Din e-post:</label>
                 <br/>
-                <input type="email" placeholder="name@mail.com" id="mail"></input>
+                <Input type="email" placeholder="name@mail.com" id="mail"></Input>
                 <br/>
-                <button type="submit">GO</button>
-            </form>
+                <Button type="submit">GO</Button>
+            </Form>
         </React.Fragment>
     )
 }

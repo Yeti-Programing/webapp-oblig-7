@@ -1,6 +1,6 @@
 import user from '../../modell/user/userModell.js';
 
-export const getUserByMail = async (mail) => user.find({mail: mail});
+export const getUserByMail = async (mail) => user.find({mail});
 
 export const listUsers = async () => user.find();
 

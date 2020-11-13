@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { Form, Input, Button } from '../../styled/formStyle';
 
 function buttonClicked(){
     
@@ -8,17 +9,17 @@ export class Poll_main extends Component {
     render() {
         return (
             <div>
-                <form onSubmit={buttonClicked}>
+            <Form onSubmit={buttonClicked}>
                     <label>Poll-ID:</label>
                     <br/>
-                    <input type="text" placeholder="ex: 1a2bcd3-45..."></input>
+                    <Input type="text" placeholder="ex: 1a2bcd3-45..."></Input>
                     <br/>
                     <label>Din e-post:</label>
                     <br/>
-                    <input type="email" placeholder="name@mail.com"></input>
+                    <Input type="email" placeholder="name@mail.com"></Input>
                     <br/>
-                    <button type="submit">GO</button>
-                </form>
+                    <Button type="submit">GO</Button>
+            </Form>
             </div>
         )
     }
