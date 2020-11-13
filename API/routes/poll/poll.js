@@ -1,4 +1,5 @@
 import express from 'express';
+import { getPolls } from '../../controller/poll/pollController.js'
 
 const router = express.Router();
 
