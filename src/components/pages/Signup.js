@@ -4,7 +4,7 @@ import axios from 'axios';
 import { Form, Input, Button } from '../../styled/formStyle';
 
 function buttonClicked(){
-    var mail = document.getElementById("mail").value.toLowerCase();
+    let mail = document.getElementById("mail").value.toLowerCase();
     axios.post('http://localhost:5000/api/v1/signup', {
         mail: mail,
         userid: uuid()
