@@ -1,29 +1,31 @@
 import { userService } from '../../service/user/index.js';
+import catchAsyncErrors from '../../middleware/catchAsync.js';
+import ErrorHander from '../../utils/errorHandler.js';
 
-export const get = async (req,res,next) => {
+export const get = catchAsyncErrors(async (req,res,next) => {
     const user = await userService.getUserByMail(req.params.mail);
     if(user.length === 0) { 
-        return res.status(404).json({error: "Not found"});
+        return next(
+            new ErrorHander(`Finner ikke bruker med mail: ${req.params.mail}`, 404)
+        );
     }
     res.status(200).json(user);
-};
+});
 
-export const users = async (req,res,next) => {
+export const users = catchAsyncErrors(async (req,res,next) => {
     const result = await userService.listUsers();
     res.status(200).json({...result});
-};
+});
 
-export const create = async (req,res,next) => {
-    try {
+export const create = catchAsyncErrors(async (req,res,next) => {
         const mailCheck = await userService.getUserByMail(req.body.mail);
         if(mailCheck.length === 1){
-            res.status(409).json({ error: "Mail exists in system" });
+            return next(
+                new ErrorHander(`Mail eksisterer allerede i systemet: ${req.body.mail}`, 409)
+            );
         }
         else{
-            const user = await userService.createUser(req.body);
-            res.status(201).json({user});
+            await userService.createUser(req.body);
+            res.status(201).json({success: true, message: "Mail var lagt til i database", user: req.body});
         }
-    } catch (error) {
-        res.status(400).json({ error: "Create error" });
-    }
-};
+});

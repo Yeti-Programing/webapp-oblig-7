@@ -14,7 +14,7 @@ export const polls = async (req, res, next) => {
 
 export const createPoll = async (req, res, next) => {
     try {
-        const create = await pollService.createPoll(req.body.)
+        //const create = await pollService.createPoll(req.body.)
     }
     catch(error) {
         res.status(400).json({ error: "Create error"});
