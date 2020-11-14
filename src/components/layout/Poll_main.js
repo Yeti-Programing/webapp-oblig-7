@@ -18,11 +18,11 @@ export class Poll_main extends Component {
                     <br/>
                     <Input type="text" placeholder="ex: 1a2bcd3-45..."></Input>
                     <br/>
-                    <Button type="button" onClick={checkClicked}>Sjekk Poll-ID</Button>
-                    <br/>
                     <label>Din e-post:</label>
                     <br/>
                     <Input type="email" placeholder="name@mail.com"></Input>
+                    <br/>
+                    <Button type="button" onClick={checkClicked}>Sjekk Poll-ID og mail</Button>
                     <br/>
                     <label>Spørsmål blir vist her når Poll-ID er bekreftet</label>
                     <br/>
