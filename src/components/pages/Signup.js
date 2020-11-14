@@ -10,17 +10,21 @@ function buttonClicked(){
         userid: uuid()
       })
       .then(function () {
-        alert(`Du er naa registrert`);
+        document.getElementById("mail").value = "";
+        document.getElementById("melding").innerHTML = "Du er nå registrert";
       })
       .catch(function (error) {
         if(error.toString() === "Error: Request failed with status code 409"){
-          alert(`Denne mailen eksisterer allerede i systemet.\n${error}`);
+          console.error(`Denne mailen eksisterer allerede i systemet.\n${error}`);
+          document.getElementById("mail").value = "";
+          document.getElementById("melding").innerHTML = "Denne mailen eksisterer allerede i systemet.";
+
         }
         else if(error.toString() === "Error: Request failed with status code 400"){
-          alert(`Skriv inn en gyldig mail.\n${error}`);
+          console.error(`Skriv inn en gyldig mail.\n${error}`);
         }
         else{
-          alert(`Noe feil skjedde, prøv på nytt.\n${error}`);
+          console.error(`Noe feil skjedde, prøv på nytt.\n${error}`);
         }
       });
 }
@@ -28,12 +32,14 @@ function buttonClicked(){
 export default function Signup() {
     return (
         <React.Fragment>
-            <Form onSubmit={buttonClicked}>
+            <Form>
                 <label>Din e-post:</label>
                 <br/>
                 <Input type="email" placeholder="name@mail.com" id="mail"></Input>
                 <br/>
-                <Button type="submit">GO</Button>
+                <label id="melding"></label>
+                <br/>
+                <Button type="button" onClick={buttonClicked}>GO</Button>
             </Form>
         </React.Fragment>
     )

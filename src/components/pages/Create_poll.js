@@ -27,19 +27,25 @@ function buttonClicked(){
             answeredid: []
         })
         .then(function(){
-            alert(`Din poll har blitt registrert!\nDin poll ID: ${newpollid}`)
+            document.getElementById("melding").innerHTML = `Din poll har blitt registrert med poll ID: ${newpollid}`;
+            document.getElementById("mail").value = "";
+            document.getElementById("pollQ").value = "";
+
         })
         .catch(function(error){
-            alert("Det har oppstått en feil, prøv igjen!")
+            console.error("Det har oppstått en feil, prøv igjen!")
         })
 
     })
     .catch(function(error){ 
         if(error.toString() === "Error: Request failed with status code 404"){
-        alert(`Mailen du har skrevet, er ikke registrert.\n${error}`);
+            console.error(`Mailen du har skrevet, er ikke registrert.\n${error}`);
+            document.getElementById("melding").innerHTML = `Mailen du har skrevet er ikke registrert.`;
+            document.getElementById("mail").value = "";
+            document.getElementById("pollQ").value = "";
         }
         else{
-        alert(`Noe feil skjedde, prøv på nytt.\n${error}`);
+            console.error(`Noe feil skjedde, prøv på nytt.\n${error}`);
       }})
        
       
@@ -56,6 +62,8 @@ function Create_poll() {
                 <label>Skriv inn ditt spørsmål:</label>
                 <br/>
                 <Input id="pollQ" type="text" placeholder="Spørsmål"></Input>
+                <br/>
+                <label id="melding"></label>
                 <br/>
                 <Button type="button" onClick={buttonClicked}>GO</Button>
             </Form>
