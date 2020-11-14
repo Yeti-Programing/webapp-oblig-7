@@ -48,7 +48,7 @@ function buttonClicked(){
 function Create_poll() {
     return (
         <React.Fragment>
-            <Form onSubmit={buttonClicked}>
+            <Form>
                 <label>Din e-post:</label>
                 <br/>
                 <Input id="mail" type="email" placeholder="name@mail.com"></Input>
@@ -57,7 +57,7 @@ function Create_poll() {
                 <br/>
                 <Input id="pollQ" type="text" placeholder="Spørsmål"></Input>
                 <br/>
-                <Button type="submit">GO</Button>
+                <Button type="button" onClick={buttonClicked}>GO</Button>
             </Form>
         </React.Fragment>
     )
