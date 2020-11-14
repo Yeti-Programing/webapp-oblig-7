@@ -15,6 +15,14 @@ const PollSchema = new Schema (
         question: {
             type: String,
             required: true,
+        },
+        answers: {
+            type: [String],
+            required: true,
+        },
+        answeredid: {
+            type: [String],
+            required: true,
         }
     }
 )

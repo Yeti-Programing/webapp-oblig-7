@@ -1,7 +1,8 @@
 import { pollService } from '../../service/poll/index.js';
 import ErrorHander from '../../utils/errorHandler.js';
+import catchAsyncErrors from '../../middleware/catchAsync.js';
 
-export const getPolls = async (req, res, next) => {
+export const getPolls = catchAsyncErrors(async (req, res, next) => {
     const poll = await pollService.getPollById(req.params.pollid);
     if(!poll){
         return next(
@@ -9,14 +10,14 @@ export const getPolls = async (req, res, next) => {
         );
     }
     res.status(200).json(poll);
-};
+});
 
-export const polls = async (req, res, next) => {
+export const polls = catchAsyncErrors(async (req, res, next) => {
     const findPoll = await pollService.listPolls();
     res.status(200).json({...findPoll});
-}
+})
 
-export const createPoll = async (req, res, next) => {
+export const createPoll = catchAsyncErrors(async (req, res, next) => {
     try {
         await pollService.createPoll(req.body)
         res.status(201).json({message: "success"})
@@ -24,4 +25,4 @@ export const createPoll = async (req, res, next) => {
     catch(error) {
         new ErrorHander(`Mail eksisterer allerede i systemet: ${req.body}`, 400)
     }
-}
+})

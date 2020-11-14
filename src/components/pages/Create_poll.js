@@ -20,7 +20,9 @@ function buttonClicked(){
         axios.post('http://localhost:5000/api/v1/poll', {
             pollid: uuid(),
             creatorid: userid,
-            question:question
+            question:question,
+            answers: [],
+            answeredid: []
         })
         .then(function(){
             alert("Din poll har blitt registrert!")
