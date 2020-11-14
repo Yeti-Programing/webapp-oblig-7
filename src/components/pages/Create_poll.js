@@ -8,6 +8,7 @@ function buttonClicked(){
     let mail = document.getElementById("mail").value.toLowerCase();
     let question = document.getElementById("pollQ").value;
     let userid = "";
+    let newpollid = "";
 
     axios.get(`http://localhost:5000/api/v1/signup/${mail}`)
     .then(function(response)
@@ -15,17 +16,18 @@ function buttonClicked(){
         let json = JSON.stringify(response);
         let array = json.split("\"");
         userid = array[13];
+        newpollid = uuid();
         
         
         axios.post('http://localhost:5000/api/v1/poll', {
-            pollid: uuid(),
+            pollid: newpollid,
             creatorid: userid,
             question:question,
             answers: [],
             answeredid: []
         })
         .then(function(){
-            alert("Din poll har blitt registrert!")
+            alert(`Din poll har blitt registrert!\nDin poll ID: ${newpollid}`)
         })
         .catch(function(error){
             alert("Det har oppstått en feil, prøv igjen!")
