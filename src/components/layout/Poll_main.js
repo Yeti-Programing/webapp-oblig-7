@@ -18,6 +18,10 @@ export class Poll_main extends Component {
                     <br/>
                     <Input type="email" placeholder="name@mail.com"></Input>
                     <br/>
+                    <label>Spørsmål blir vist her når Poll-ID er bekreftet</label>
+                    <br/>
+                    <Input type="text" placeholder="Ditt svar"></Input>
+                    <br/>
                     <Button type="submit">GO</Button>
             </Form>
             </div>
