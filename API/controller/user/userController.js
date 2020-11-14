@@ -12,6 +12,16 @@ export const get = catchAsyncErrors(async (req,res,next) => {
     res.status(200).json(user);
 });
 
+export const getId = catchAsyncErrors(async (req,res,next) => {
+    const user = await userService.getUserById(req.params.id);
+    if(user.length === 0) { 
+        return next(
+            new ErrorHander(`Finner ikke bruker med ID: ${req.params.id}`, 404)
+        );
+    }
+    res.status(200).json(user);
+});
+
 export const users = catchAsyncErrors(async (req,res,next) => {
     const result = await userService.listUsers();
     res.status(200).json({...result});

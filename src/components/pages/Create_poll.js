@@ -10,7 +10,7 @@ function buttonClicked(){
     let userid = "";
     let newpollid = "";
 
-    axios.get(`http://localhost:5000/api/v1/signup/${mail}`)
+    axios.get(`http://localhost:5000/api/v1/signup/mail/${mail}`)
     .then(function(response)
     { 
         let json = JSON.stringify(response);
