@@ -25,10 +25,10 @@ I Body (raw - JSON):
 ### Poll Requests
 Lag 2 Get og 1 Post request
 #### Get
-{{LOCAL_URL}}/{{BASE_URL}}/poll
+* {{LOCAL_URL}}/{{BASE_URL}}/poll
 * {{LOCAL_URL}}/{{BASE_URL}}/poll/ (SKRIV INN EN POLLID ETTER "poll/")
 #### Post
-{{LOCAL_URL}}/{{BASE_URL}}/poll
+* {{LOCAL_URL}}/{{BASE_URL}}/poll
 
 I Body (raw - JSON):
 {
@@ -38,6 +38,8 @@ I Body (raw - JSON):
     "answers": [],
     "answeredid": []
 }
+
+
 
 
 
