@@ -3,7 +3,7 @@ import { v4 as uuid } from 'uuid';
 import axios from 'axios';
 import { Form, Input, Button } from '../../styled/formStyle';
 
-//Er av og til litt treig, så må prøve til du får en alert
+
 function buttonClicked(){
     let mail = document.getElementById("mail").value.toLowerCase();
     let question = document.getElementById("pollQ").value;
@@ -33,7 +33,7 @@ function buttonClicked(){
 
         })
         .catch(function(error){
-            console.error("Det har oppstått en feil, prøv igjen!")
+            console.error("Det har oppstått en feil, prøv igjen.")
         })
 
     })
@@ -45,7 +45,7 @@ function buttonClicked(){
             document.getElementById("pollQ").value = "";
         }
         else{
-            console.error(`Noe feil skjedde, prøv på nytt.\n${error}`);
+            console.error(`Det har skjedd en feil, prøv på nytt.\n${error}`);
       }})
        
       
