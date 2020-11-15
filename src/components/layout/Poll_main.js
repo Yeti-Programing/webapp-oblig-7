@@ -88,8 +88,6 @@ export class Poll_main extends Component {
                     <br/>
                     <Input id="insPoll" type="text" placeholder="ex: 1a2bcd3-45..."></Input>
                     <br/>
-                    <Button type="button" onClick={checkClicked}>Sjekk Poll-ID</Button>
-                    <br/>
                     <label>Din e-post:</label>
                     <br/>
                     <Input id="email" type="email" placeholder="name@mail.com"></Input>
