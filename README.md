@@ -1,5 +1,43 @@
 # !!!VIKTIG!!!
+
 I MongoDB lag databasen hiof og legg til collections "polls" og "users" i denne!!!
+
+## Postman
+## Environment
+{{LOCAL_URL}} = http://localhost:5000
+{{BASE_URL}} = api/v1
+
+### User Requests
+Lag 3 Get og 1 Post request
+#### Get
+* {{LOCAL_URL}}/{{BASE_URL}}/signup
+* {{LOCAL_URL}}/{{BASE_URL}}/signup/mail/ (SKRIV INN EN MAIL ETTER "mail/")
+* {{LOCAL_URL}}/{{BASE_URL}}/signup/id/ (SKRIV INN EN USERID ETTER "id/")
+### Post
+* {{LOCAL_URL}}/{{BASE_URL}}/signup
+I Body (raw - JSON):
+{
+    "mail": "navn@epost.com",
+    "userid": "id-123-id"
+}
+
+### Poll Requests
+Lag 2 Get og 1 Post request
+#### Get
+{{LOCAL_URL}}/{{BASE_URL}}/poll
+* {{LOCAL_URL}}/{{BASE_URL}}/poll/ (SKRIV INN EN POLLID ETTER "poll/")
+#### Post
+{{LOCAL_URL}}/{{BASE_URL}}/poll
+I Body (raw - JSON):
+{
+    "pollid": "test-pollid-test",
+    "creatorid": "test-userid-test",
+    "question": "Har du et spørsmål?",
+    "answers": [],
+    "answeredid": []
+}
+
+
 
 # Getting Started with Create React App
 
