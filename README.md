@@ -15,6 +15,7 @@ Lag 3 Get og 1 Post request
 * {{LOCAL_URL}}/{{BASE_URL}}/signup/id/ (SKRIV INN EN USERID ETTER "id/")
 ### Post
 * {{LOCAL_URL}}/{{BASE_URL}}/signup
+
 I Body (raw - JSON):
 {
     "mail": "navn@epost.com",
@@ -28,6 +29,7 @@ Lag 2 Get og 1 Post request
 * {{LOCAL_URL}}/{{BASE_URL}}/poll/ (SKRIV INN EN POLLID ETTER "poll/")
 #### Post
 {{LOCAL_URL}}/{{BASE_URL}}/poll
+
 I Body (raw - JSON):
 {
     "pollid": "test-pollid-test",
