@@ -13,8 +13,14 @@ function checkClicked(){
         let json = JSON.stringify(response);
         let array = json.split("\"");
         pollId = array[21];
-
+        if(array[21] === "url") {
+            alert("vennligst skriv inn en gyldig ID");
+            document.getElementById("insPoll").value = "";
+        }
+        else{
         document.getElementById("melding").innerHTML = pollId;
+        }
+        
     })
     .catch(function(error){
         if(error.toString() === "Error: Request failed with status code 404"){
@@ -64,11 +70,18 @@ function buttonClicked(){
             document.getElementById("svar").value = "";
         })
         .catch(function(error){
-            console.error("Det har oppstått en feil, prøv igjen.")
+            console.error(`Det har skjedd en feil, prøv på nytt.\n${error}`);
         })
            
         })
-
+        .catch(function(error){
+            if(error.toString() === "Error: Request failed with status code 404"){
+                console.error(`Mailen du har skrevet, er ikke registrert.\n${error}`);
+                document.getElementById("melding").innerHTML = `Mailen du har skrevet er ikke registrert.`;
+            }
+            else{
+                console.error(`Det har skjedd en feil, prøv på nytt.\n${error}`);
+        }})
     })
     .catch(function(error){
         if(error.toString() === "Error: Request failed with status code 404"){
