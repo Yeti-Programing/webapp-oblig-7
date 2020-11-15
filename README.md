@@ -1,3 +1,6 @@
+# !!!VIKTIG!!!
+I MongoDB lag databasen hiof og legg til collections "polls" og "users" i denne!!!
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
