@@ -13,7 +13,7 @@ Lag 3 Get og 1 Post request
 * {{LOCAL_URL}}/{{BASE_URL}}/signup
 * {{LOCAL_URL}}/{{BASE_URL}}/signup/mail/ (SKRIV INN EN MAIL ETTER "mail/")
 * {{LOCAL_URL}}/{{BASE_URL}}/signup/id/ (SKRIV INN EN USERID ETTER "id/")
-### Post
+#### Post
 * {{LOCAL_URL}}/{{BASE_URL}}/signup
 
 I Body (raw - JSON):
